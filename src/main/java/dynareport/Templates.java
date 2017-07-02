@@ -1,32 +1,25 @@
 package dynareport;
 
 
-import static net.sf.dynamicreports.report.builder.DynamicReports.*;
+import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
+import static net.sf.dynamicreports.report.builder.DynamicReports.hyperLink;
+import static net.sf.dynamicreports.report.builder.DynamicReports.stl;
+import static net.sf.dynamicreports.report.builder.DynamicReports.tableOfContentsCustomizer;
+import static net.sf.dynamicreports.report.builder.DynamicReports.template;
 
 import java.awt.Color;
-
 import java.util.Locale;
 
- 
-
 import net.sf.dynamicreports.report.base.expression.AbstractValueFormatter;
-
 import net.sf.dynamicreports.report.builder.HyperLinkBuilder;
-
 import net.sf.dynamicreports.report.builder.ReportTemplateBuilder;
-
 import net.sf.dynamicreports.report.builder.component.ComponentBuilder;
-
 import net.sf.dynamicreports.report.builder.datatype.BigDecimalType;
-
 import net.sf.dynamicreports.report.builder.style.StyleBuilder;
-
 import net.sf.dynamicreports.report.builder.tableofcontents.TableOfContentsCustomizerBuilder;
-
 import net.sf.dynamicreports.report.constant.HorizontalAlignment;
-
-import net.sf.dynamicreports.report.constant.VerticalAlignment;
-
+import net.sf.dynamicreports.report.constant.HorizontalTextAlignment;
+import net.sf.dynamicreports.report.constant.VerticalTextAlignment;
 import net.sf.dynamicreports.report.definition.ReportParameters;
 
  
@@ -83,7 +76,7 @@ static {
 
    boldCenteredStyle   = stl.style(boldStyle)
 
-                            .setAlignment(HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
+                            .setTextAlignment(HorizontalTextAlignment.CENTER, VerticalTextAlignment.MIDDLE);
 
    bold12CenteredStyle = stl.style(boldCenteredStyle)
 
@@ -97,13 +90,14 @@ static {
 
                           .setFontSize(22);
 
-   columnStyle         = stl.style(rootStyle).setVerticalAlignment(VerticalAlignment.MIDDLE);
+   columnStyle         = stl.style(rootStyle)
+           					.setTextAlignment(HorizontalTextAlignment.CENTER, VerticalTextAlignment.MIDDLE);
 
    columnTitleStyle    = stl.style(columnStyle)
 
                             .setBorder(stl.pen1Point())
 
-                            .setHorizontalAlignment(HorizontalAlignment.CENTER)
+                            .setHorizontalTextAlignment(HorizontalTextAlignment.CENTER)
 
                             .setBackgroundColor(Color.LIGHT_GRAY)
 
@@ -111,7 +105,7 @@ static {
 
    groupStyle          = stl.style(boldStyle)
 
-                            .setHorizontalAlignment(HorizontalAlignment.LEFT);
+                            .setHorizontalTextAlignment(HorizontalTextAlignment.LEFT);
 
    subtotalStyle       = stl.style(boldStyle)
 
@@ -185,7 +179,7 @@ static {
 
       cmp.verticalList(
 
-         cmp.text("DynamicReports").setStyle(bold22CenteredStyle).setHorizontalAlignment(HorizontalAlignment.LEFT),
+         cmp.text("DynamicReports").setStyle(bold22CenteredStyle).setHorizontalTextAlignment(HorizontalTextAlignment.LEFT),
 
          cmp.text("http://www.dynamicreports.org").setStyle(italicStyle).setHyperLink(link))).setFixedWidth(300);
 
@@ -217,7 +211,7 @@ public static ComponentBuilder<?, ?> createTitleComponent(String label) {
 
             dynamicReportsComponent,
 
-            cmp.text(label).setStyle(bold18CenteredStyle).setHorizontalAlignment(HorizontalAlignment.RIGHT))
+            cmp.text(label).setStyle(bold18CenteredStyle).setHorizontalTextAlignment(HorizontalTextAlignment.RIGHT))
 
            .newRow()
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fontFamilies>
+
+	<fontFamily name="FreeUniversal">
+		<normal>fonts/FreeUniversal-Regular.ttf</normal>
+		<bold>fonts/FreeUniversal-Bold.ttf</bold>
+		<italic>fonts/FreeUniversal-Italic.ttf</italic>
+		<boldItalic>fonts/FreeUniversal-BoldItalic.ttf</boldItalic>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+	</fontFamily>
+
+</fontFamilies>
